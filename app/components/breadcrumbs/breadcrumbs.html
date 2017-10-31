@@ -1,0 +1,9 @@
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li ng-repeat="breadcrumb in $ctrl.breadcrumbs"></li>
+    <li class="breadcrumb-item" ng-class="{'active': $last}" ng-repeat="breadcrumb in $ctrl.breadcrumbs">
+      <a ui-sref="{{breadcrumb.state}}" ng-if="!$last">{{breadcrumb.title}}</a>
+      <span ng-if="$last">{{breadcrumb.title}}</span>
+    </li>
+  </ol>
+</nav>

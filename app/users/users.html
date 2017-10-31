@@ -1,0 +1,33 @@
+<view-loader ng-show="$ctrl.loading"></view-loader>
+<div ng-hide="$ctrl.loading" -cloak>
+  <div class="users">
+    <h3 class="users--header">Favorites</h3>
+    <i ng-hide="$ctrl.favorites.length">No favorites added. Add a favorite user by clicking the star in the user card.</i>
+    <div class="container" ng-show="$ctrl.favorites.length">
+      <div class="row">
+        <div class="col-4" ng-repeat="user in $ctrl.favorites | orderBy:'name' track by $index">
+          <div class="col-item" ng-click="$ctrl.goToUser(user)">
+            <h5 class="col-item--header">{{user.name}}<span class="fa fa-star col-item--favorite-icon" ng-click="$ctrl.removeFavorite($event, user)"></span></h5>
+            <div>{{user.email}}</div>
+            <div>{{user.company.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="users">
+    <h3 class="users--header">Users</h3>
+    <i ng-hide="$ctrl.users.length">No users available.</i>
+    <div class="container" ng-show="$ctrl.users.length">
+      <div class="row">
+        <div class="col-4" ng-repeat="user in $ctrl.users | orderBy:'name' track by $index">
+          <div class="col-item" ng-click="$ctrl.goToUser(user)">
+            <h5 class="col-item--header">{{user.name}}<span class="fa fa-star-o col-item--favorite-icon" ng-click="$ctrl.addFavorite($event, user)"></span></h5>
+            <div>{{user.email}}</div>
+            <div>{{user.company.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

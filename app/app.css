@@ -1,0 +1,171 @@
+/* app css stylesheet */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.view-loader {
+  margin: 50px auto;
+  text-align: center;
+}
+
+.users {
+  margin-bottom: 40px;
+}
+
+.users--header {
+  border-bottom: 2px solid #777;
+}
+
+.col-item {
+  display: block;
+  background-color: #FFD1DC;
+  color: #8C3449;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  text-decoration: none;
+}
+
+.col-item--header {
+  font-weight: bold;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.col-item--favorite-icon {
+  float: right;
+}
+
+.user {
+  margin: 50px auto;
+  text-align: center;
+}
+
+.user--header {
+  margin: 20px auto;
+}
+
+.user-information {
+  font-style: italic;
+  color: #777;
+  font-size: 14px;
+}
+
+.user-information--divider {
+  margin: 0 15px;
+}
+
+.user-albums {
+
+}
+
+.user-albums--header {
+  border-bottom: 2px solid #777;
+}
+
+.album {
+  margin: 50px auto;
+}
+
+.album--header {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.album--details {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 100px;
+}
+
+.col-image {
+  padding: 10px;
+}
+
+.col-image-wrapper {
+  position: relative;
+  width: 100%;
+  background: #EEE;
+}
+
+.col-image-wrapper:before {
+  content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+.col-image--img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 100%;
+  max-height: 100%;
+  cursor: pointer;
+
+  transition: transform 300ms ease-in, top 300ms ease-in, left 300ms ease-in, height 300ms ease-in, width 300ms ease-in;
+}
+
+.col-image--img__active {
+  position: fixed;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  height: 500px !important;
+  width: 500px !important;
+}
+
+.photo-viewer-modal-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  background: #000;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: opacity 300ms ease-in;
+}
+
+.photo-viewer-modal-backdrop__fadein {
+  opacity: 1;
+}
+
+.photo-viewer--close-icon {
+  color: #FFF;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.photo-viewer--move-icon {
+  margin: auto 50px;
+  position: fixed;
+  top: 50%;
+  color: #FFF;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.photo-viewer--move-icon__right {
+  right: 0;
+}
+
+.photo-viewer--move-icon:hover {
+  opacity: 1;
+}
+
+.photo-viewer-modal--album-title {
+  color: #FFF;
+  text-align: center;
+  position: relative;
+  top: 90%;
+  font-style: italic;
+}

@@ -1,0 +1,15 @@
+<view-loader ng-show="$ctrl.loading"></view-loader>
+<div class="album" ng-hide="$ctrl.loading">
+  <h3 class="album--header">{{$ctrl.album.title}}</h3>
+  <div class="album--details">{{$ctrl.photos.length}} photos</div>
+  <div class="container" ng-show="$ctrl.photos.length">
+    <div class="row">
+      <div class="col-3 col-image" ng-repeat="photo in $ctrl.photos | orderBy:'name' track by $index">
+        <div class="col-image-wrapper">
+          <img id="{{'photo-' + photo.id}}" class="col-image--img" src="{{photo.url}}" alt="{{photo.title}}">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div photo-viewer ng-model="$ctrl.photos"></div>
+</div>

@@ -1,0 +1,28 @@
+<view-loader ng-show="$ctrl.loading"></view-loader>
+<div ng-hide="$ctrl.loading">
+  <div class="user">
+    <h3 class="user--header">{{$ctrl.user.name}}</h3>
+    <div class="user-information">
+      <span>{{$ctrl.user.company.name}}</span>
+      <span class="user-information--divider">&mdash;</span>
+      <span>{{$ctrl.user.email}}</span>
+      <span class="user-information--divider">&mdash;</span>
+      <span>{{$ctrl.user.address.street + ', ' + $ctrl.user.address.zipcode + ' ' + $ctrl.user.address.city}}</span>
+    </div>
+  </div>
+
+  <view-loader ng-show="$ctrl.loadingAlbums"></view-loader>
+  <div class="user-albums" ng-hide="$ctrl.loadingAlbums">
+    <h3 class="user-albums--header">Albums</h3>
+    <i ng-hide="$ctrl.albums.length">No albums available.</i>
+    <div class="container" ng-show="$ctrl.albums.length">
+      <div class="row">
+        <div class="col-4" ng-repeat="album in $ctrl.albums | orderBy:'name' track by $index">
+          <div class="col-item" ng-click="$ctrl.goToAlbum(album)">
+            <div>{{album.title}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
