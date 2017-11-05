@@ -43,10 +43,10 @@ angular.module('myApp.breadcrumbs', [])
   var stateData = {};
   return {
     getStateData: function() {
-      return stateData;
+      return angular.copy(stateData);
     },
     setStateData: function(data) {
-      stateData = angular.copy(data);
+      stateData = data;
     }
   }
 });

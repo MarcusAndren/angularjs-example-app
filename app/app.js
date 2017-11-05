@@ -85,9 +85,8 @@ config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $st
   $stateProvider.state('user.album', albumState);
 }])
 .run(function($rootScope, $transitions, $q, BreadcrumbService) {
-  var stateData = {};
-
   $transitions.onSuccess({}, function(trans){
+    var stateData = {};
     var tokens = trans.getResolveTokens();
     var promises = tokens.map(function(token) {
       if(trans.injector().get(token).$promise) {
@@ -95,10 +94,12 @@ config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $st
           var stateToken = {key: token, value: value};
           return stateToken;
         });
+      } else {
+        return null;
       }
     });
     promises = promises.filter(function(promise) {
-      return typeof promise !== 'undefined';
+      return promise;
     });
     if(promises.length) {
       $q.all(promises).then(function(values) {
