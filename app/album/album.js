@@ -38,6 +38,7 @@ angular.module('myApp.album', [])
     },
     link: function(scope) {
       var backdropElem = document.getElementById('photo-viewer-modal');
+      var bodyElem = document.body;
       var displayPhotoElem;
       var displayPhotoId;
       var photoDim;
@@ -78,6 +79,7 @@ angular.module('myApp.album', [])
       scope.closePhotoViewModal = function() {
         backdropElem.classList.remove('photo-viewer-modal-backdrop__fadein');
         closeDisplayPhoto(function() {
+          bodyElem.classList.remove('noscroll');
           backdropElem.style.display = 'none';
         });
       };
@@ -95,6 +97,7 @@ angular.module('myApp.album', [])
       scope.openPhotoViewModal = function(photoId) {
         setDisplayPhoto(photoId);
 
+        bodyElem.classList.add('noscroll');
         backdropElem.style.display = 'block';
         openDisplayPhoto(function() {
           backdropElem.classList.add('photo-viewer-modal-backdrop__fadein');
